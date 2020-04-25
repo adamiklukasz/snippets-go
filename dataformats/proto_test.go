@@ -2,6 +2,7 @@ package dataformats
 
 import (
 	"fmt"
+	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"snippets-go/dataformats/defs"
@@ -30,5 +31,9 @@ func TestProtobufLoad(t *testing.T) {
 	p := defs.Person{}
 	_ = proto.Unmarshal(in, &p)
 
+	protoToJSON := jsonpb.Marshaler{}
+	personJSON, _ := protoToJSON.MarshalToString(&p)
+
 	fmt.Printf("person=[%v]\n", p)
+	fmt.Printf("personJSON=%s\n", personJSON)
 }
