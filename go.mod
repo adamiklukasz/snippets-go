@@ -9,4 +9,5 @@ require (
 	github.com/sirupsen/logrus v1.5.0
 	golang.org/x/text v0.3.2 // indirect
 	google.golang.org/protobuf v1.21.0
+	github.com/golang/mock v1.4.3
 )
