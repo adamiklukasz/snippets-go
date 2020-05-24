@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/Pallinder/go-randomdata v1.2.0
+	github.com/allegro/bigcache v1.2.1
 	github.com/bshuster-repo/logrus-logstash-hook v0.4.1
 	github.com/cheekybits/genny v1.0.0
 	github.com/golang/mock v1.4.3
