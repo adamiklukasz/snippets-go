@@ -9,6 +9,7 @@ require (
 	github.com/cheekybits/genny v1.0.0
 	github.com/golang/mock v1.4.3
 	github.com/golang/protobuf v1.4.0
+	github.com/jinzhu/gorm v1.9.12
 	github.com/sirupsen/logrus v1.5.0
 	golang.org/x/text v0.3.2 // indirect
 	google.golang.org/protobuf v1.21.0
