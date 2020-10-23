@@ -13,4 +13,6 @@ require (
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
 	golang.org/x/text v0.3.2 // indirect
 	google.golang.org/protobuf v1.21.0
+	gorm.io/driver/sqlite v1.1.3
+	gorm.io/gorm v1.20.2
 )
