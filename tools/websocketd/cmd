@@ -1,0 +1,1 @@
+./websocketd.exe --port=8080 bash scr.sh 
