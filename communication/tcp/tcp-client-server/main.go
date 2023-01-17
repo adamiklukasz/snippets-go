@@ -22,6 +22,7 @@ func client() {
 	if err != nil {
 		return
 	}
+	fmt.Printf("[client] connected\n")
 
 	defer dial.Close()
 
