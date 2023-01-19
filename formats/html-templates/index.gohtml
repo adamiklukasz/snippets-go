@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{{define "T1"}}
+Predefined block of code
+{{end}}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>{{.Text}}</p>
+<a href="{{.Text}}">Link</a>
+
+{{- range $i, $el := .Names -}}
+    <p>{{$i}}-{{$el}}</p>
+{{end}}
+
+{{index .Names 1}}
+
+{{if .ShouldPrint }}
+    <pre>Printed conditionally</pre>
+{{end}}
+
+{{if ge .Num  10}}
+    <pre>{{myfun2 "Greater" 4}}</pre>
+    <pre>{{4 | myfun2 "Greater"}}</pre>
+{{end}}
+
+{{template "T1"}}
+</body>
+</html>
