@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/Pallinder/go-randomdata"
 	"math/rand"
 	"time"
 
-	"github.com/Pallinder/go-randomdata"
 	"github.com/sirupsen/logrus"
 )
 
@@ -25,8 +25,7 @@ func (*MyHook) Levels() []logrus.Level {
 }
 
 func (*MyHook) Fire(e *logrus.Entry) error {
-	fmt.Printf("[Hook] FIELDS=%#v\n", e.Data)
-	fmt.Printf("[Hook] MSG=%#v\n", e.Message)
+	fmt.Printf("  [Hook]  FIELDS=%#v MSG=%#v\n", e.Data, e.Message)
 	return nil
 }
 
@@ -38,7 +37,15 @@ func main() {
 	time.Sleep(exitDelay)
 }
 
-func init() {
+func setJSONFormatter() {
+	jsonFormatter := logrus.JSONFormatter{
+		TimestampFormat: time.RFC3339Nano,
+	}
+
+	logrus.SetFormatter(&jsonFormatter)
+}
+
+func setTextFormattter() {
 	formatter := logrus.TextFormatter{
 		TimestampFormat: time.RFC3339Nano,
 		FieldMap: logrus.FieldMap{
@@ -47,7 +54,12 @@ func init() {
 			logrus.FieldKeyFunc: "block",
 		},
 	}
+
 	logrus.SetFormatter(&formatter)
+}
+
+func init() {
+	setTextFormattter()
 	logrus.SetReportCaller(true)
 	logrus.SetLevel(logrus.TraceLevel)
 	logrus.AddHook(&MyHook{})
